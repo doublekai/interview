@@ -16,15 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
+
 from common.error.exceptions import BizException
 from common.error.override import register_params_error_handler
 from student.api import student_api
 from student.authenticators import CustomHttpBearer
+
 app = NinjaAPI(title="学生班级管理", description="跨链大数据平台后端API")
-app.add_router("student", student_api,auth=CustomHttpBearer())
-BizException.register(app)  
+app.add_router("student", student_api, auth=CustomHttpBearer())
+BizException.register(app)
 
 register_params_error_handler(app)  # 全局捕获错误
-urlpatterns = [
-   path("", app.urls)
-]
+urlpatterns = [path("", app.urls)]
