@@ -7,6 +7,14 @@
 ```shell
 # 在pyproject.toml所在的同级目录执行
 poetry install
+# 在不便安装poetry时，亦可使用对应的requirements[-dev].txt文件。该文件由poetry导出
+
+# pip install -r requirements-dev.txt
+
+# 原则上这两个文件的存在的目的是减少生产部署中需要安装的依赖
+# 如果使用这种模式初始化环境，将无法向项目添加依赖，添加依赖必须使用poetry add {package}命令
+# 并在添加完成后执行相应的导出操作，更新requirements.txt
+# poetry export -f requirements.txt --output requirements.txt --without-hashes [--dev]
 
 **启动开发服务器**:
 python manage.py runserver
