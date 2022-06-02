@@ -7,6 +7,7 @@
 ```shell
 # 在pyproject.toml所在的同级目录执行
 poetry install
+
 # 在不便安装poetry时，亦可使用对应的requirements[-dev].txt文件。该文件由poetry导出
 
 # pip install -r requirements-dev.txt
