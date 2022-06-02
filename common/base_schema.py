@@ -22,4 +22,4 @@ class P(GenericModel, Generic[T]):
 
 class PaginationSchema(Schema):
     page: int = Field(default=1, description="页码")
-    size: int = Field(default=10, description="页面容量",lt=100)  #小于 100
+    size: int = Field(default=10, description="页面容量", lt=100)  #小于 100
