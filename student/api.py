@@ -12,7 +12,7 @@ student_api = Router(tags=["学生管理"])
 @student_api.get("/student/info",
                  response=R[P[StudentResponeSchema]],
                  summary="获取学生信息")
-def get_student_info(request: HttpRequest, query: StudentRequestSchema):
+def get_student_info(request: HttpRequest, query: StudentRequestSchema=Query(...)):
     """
         ## 获取学生信息
         - 根据输入的性别
@@ -47,3 +47,7 @@ def fibnacci(request: HttpRequest, values: int = Query(..., description="数值"
     """
 
     return OK(action.fibnacci(values=values))
+
+
+# @student_api.get("days",response=R[int],summary=)
+# def get_days()
